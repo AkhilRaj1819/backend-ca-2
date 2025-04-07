@@ -31,7 +31,7 @@ app.put("/update/:id",(req,res)=>{
         return ele;
     })
 
-    const data = newData;
+
         return res.status(200).send({message:"updated sucessfully",data:data})
     } catch (error) {
         return res.status(500).send({message:"something went wrong",error})
@@ -45,7 +45,8 @@ app.delete('/delete/:id',(req,res)=>{
             return res.status(400).send({message:"enter the id in params"});
         }
         const newdata = data.splice(id,1);
-        const data = newdata;
+        
+        
        return  res.status(200).send({message:"deleted sucessfully",data});
     } catch (error) {
         return res.status(500).send({message:"something went wrong",error})   
