@@ -8,9 +8,6 @@ const data =[
     {id:3,email:"charlie@example.com",password:"charlie123"},
 ]
 
-app.get('ping',(req,res)=>{
-   return  res.status(200).send({msg:"pong"});
-})
 
 app.put("/update/:id",(req,res)=>{
     try {
@@ -47,9 +44,9 @@ app.delete('/delete/:id',(req,res)=>{
         if(!id){
             return res.status(400).send({message:"enter the id in params"});
         }
-        const newdata = data.slice(id,1);
+        const newdata = data.splice(id,1);
         const data = newdata;
-        res.status(200).send({message:"deleted sucessfully",data});
+       return  res.status(200).send({message:"deleted sucessfully",data});
     } catch (error) {
         return res.status(500).send({message:"something went wrong",error})   
     }
